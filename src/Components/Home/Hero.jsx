@@ -38,7 +38,7 @@ const slides = [
 
 export default function Hero() {
   return (
-    <section className="relative h-[85vh] w-full overflow-hidden pt-15">
+    <section className="relative h-[50vh] md:h-[85vh] w-full overflow-hidden pt-15">
       <Swiper
         spaceBetween={0}
         centeredSlides={true}
@@ -60,22 +60,22 @@ export default function Hero() {
               className="relative h-full w-full flex items-center bg-cover bg-center rounded-2xl"
               style={{ backgroundImage: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(${slide.image})` }}
             >
-              <div className="container mx-auto px-6 md:px-12">
-                <div className="max-w-2xl text-white space-y-6">
-                  <span className="bg-primary text-primary-content px-4 py-1.5 rounded-full text-sm font-bold uppercase tracking-widest">
+              <div className="container mx-auto px-4 md:px-12">
+                <div className="max-w-xl md:max-w-2xl text-white space-y-4 md:space-y-6">
+                  <span className="bg-primary text-primary-content px-3 md:px-4 py-1 md:py-1.5 rounded-full text-xs md:text-sm font-bold uppercase tracking-widest">
                     {slide.subtitle}
                   </span>
-                  <h1 className="text-5xl md:text-7xl font-black leading-tight">
+                  <h1 className="text-2xl md:text-5xl lg:text-7xl font-black leading-tight md:leading-tight lg:leading-tight">
                     {slide.title}
                   </h1>
-                  <p className="text-lg md:text-xl opacity-90 max-w-lg">
+                  <p className="text-sm md:text-lg lg:text-xl opacity-90 max-w-full md:max-w-lg">
                     {slide.desc}
                   </p>
-                  <div className="flex gap-4 pt-4">
-                    <Link href={slide.link} className="btn btn-primary btn-lg px-8 rounded-full">
+                  <div className="flex flex-col sm:flex-row gap-3 pt-4">
+                    <Link href={slide.link} className="btn btn-primary btn-sm sm:btn-md md:btn-lg w-full sm:w-auto px-6 rounded-full text-center">
                       {slide.btnText}
                     </Link>
-                    <Link href="/about" className="btn btn-outline btn-lg border-white text-white hover:bg-white hover:text-black px-8 rounded-full">
+                    <Link href="/about" className="btn btn-outline btn-sm sm:btn-md md:btn-lg border-white text-white hover:bg-white hover:text-black w-full sm:w-auto px-6 rounded-full text-center">
                       Learn More
                     </Link>
                   </div>
@@ -86,23 +86,22 @@ export default function Hero() {
         ))}
       </Swiper>
 
-      {/* Custom styles for Swiper navigation arrows to match DaisyUI */}
       <style jsx global>{`
         .swiper-button-next, .swiper-button-prev {
           color: white !important;
           background: rgba(255,255,255,0.1);
-          width: 50px !important;
-          height: 50px !important;
+          width: 40px !important;
+          height: 40px !important;
           border-radius: 50%;
           backdrop-filter: blur(5px);
         }
         .swiper-button-next:after, .swiper-button-prev:after {
-          font-size: 20px !important;
+          font-size: 18px !important;
           font-weight: bold;
         }
         .swiper-pagination-bullet-active {
-          background: #22c55e !important; /* Tailwind green-500 (Primary color) */
-          width: 25px !important;
+          background: #22c55e !important;
+          width: 20px !important;
           border-radius: 5px !important;
         }
       `}</style>

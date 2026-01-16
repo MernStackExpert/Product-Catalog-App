@@ -58,7 +58,7 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section className="mt-20 pt-10 rounded-2xl bg-base-200 overflow-hidden">
+    <section className="mt-20 py-10 rounded-2xl bg-base-200 overflow-hidden">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <span className="text-primary font-bold uppercase tracking-widest text-sm">Customer Reviews</span>

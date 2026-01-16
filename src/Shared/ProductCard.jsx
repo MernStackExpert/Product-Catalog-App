@@ -1,11 +1,16 @@
+import Image from "next/image";
+import Link from "next/link";
+
 export default function ProductCard({ product }) {
   return (
-    <div className="group bg-base-100 rounded-[2rem] border border-base-200 p-5 transition-all duration-300 hover:shadow-2xl hover:border-primary/20 cursor-pointer">
-      <div className="relative h-48 w-full mb-6 overflow-hidden rounded-[1.5rem] bg-base-200">
-        <img 
-          src={product.image} 
-          alt={product.name} 
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+    <div className="group bg-base-100 rounded-[2rem] border border-base-200 p-5 transition-all duration-300 hover:shadow-2xl hover:border-primary/20 cursor-pointer flex flex-col">
+      <div className="relative w-full mb-4 overflow-hidden rounded-[1.5rem] bg-base-200 aspect-[4/3]">
+        <Image
+          src={product.image}
+          alt={product.name}
+          fill
+          style={{ objectFit: "cover" }}
+          className="transition-transform duration-500 group-hover:scale-110"
         />
         {product.discount && (
           <div className="absolute top-3 left-3 bg-secondary text-secondary-content px-3 py-1 rounded-lg text-xs font-bold">
@@ -14,8 +19,8 @@ export default function ProductCard({ product }) {
         )}
       </div>
 
-      <div className="space-y-3">
-        <h3 className="text-lg font-bold text-base-content leading-tight h-6 overflow-hidden whitespace-nowrap text-ellipsis">
+      <div className="flex flex-col justify-between flex-1 space-y-3">
+        <h3 className="text-lg font-bold text-base-content leading-tight overflow-hidden whitespace-nowrap text-ellipsis">
           {product.name}
         </h3>
         
@@ -28,14 +33,12 @@ export default function ProductCard({ product }) {
           )}
         </div>
 
-        <div className="pt-3">
-          <a 
-            href={`/items/${product.id}`} 
-            className="btn btn-primary w-full text-center cursor-pointer"
-          >
-            View Details
-          </a>
-        </div>
+        <Link 
+          href={`/items/${product.id}`} 
+          className="btn btn-primary rounded-lg w-full text-center mt-3"
+        >
+          View Details
+        </Link>
       </div>
     </div>
   );

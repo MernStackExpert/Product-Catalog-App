@@ -1,4 +1,6 @@
 import AboutUs from "@/Components/Home/AboutUs";
+import Category from "@/Components/Home/Category";
+import CTA from "@/Components/Home/CTA";
 import Features from "@/Components/Home/Features";
 import Hero from "@/Components/Home/Hero";
 import Products from "@/Components/Home/Products";
@@ -9,9 +11,11 @@ export default function Home() {
     <main className="max-w-7xl mx-auto">
       <Hero />
       <Features />
+      <Category/>
       <Products />
       <AboutUs />
       <Testimonials />
+      <CTA/>
     </main>
   );
 }
