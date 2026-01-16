@@ -38,7 +38,7 @@ const slides = [
 
 export default function Hero() {
   return (
-    <section className="relative h-[85vh] w-full overflow-hidden">
+    <section className="relative h-[85vh] w-full overflow-hidden pt-15">
       <Swiper
         spaceBetween={0}
         centeredSlides={true}
