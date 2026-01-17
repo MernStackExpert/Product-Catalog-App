@@ -1,7 +1,13 @@
+"use client";
+
 import Link from "next/link";
+import { useSession } from "next-auth/react";
 import { dashboardItems } from "@/constants/dashboardItems";
+import Image from "next/image";
 
 export default function DashboardLayout({ children }) {
+  const { data: session } = useSession();
+
   return (
     <div className="flex min-h-screen bg-base-200">
       {/* Sidebar Section */}
@@ -27,9 +33,32 @@ export default function DashboardLayout({ children }) {
           ))}
         </nav>
 
-        <div className="p-6 border-t border-base-300">
-           <p className="text-[10px] text-gray-400 font-bold uppercase tracking-widest">Logged in as</p>
-           <p className="text-xs font-bold text-primary truncate">mdnirob30k@gmail.com</p>
+        {/* Dynamic User Profile Section */}
+        <div className="p-6 border-t border-base-300 bg-base-200/50">
+           <div className="flex items-center gap-3">
+              {session?.user?.image ? (
+                <div className="relative w-10 h-10 rounded-full overflow-hidden border-2 border-primary">
+                  <Image 
+                    src={session.user.image} 
+                    alt="profile" 
+                    fill 
+                    className="object-cover"
+                  />
+                </div>
+              ) : (
+                <div className="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold">
+                  {session?.user?.name?.charAt(0) || "U"}
+                </div>
+              )}
+              <div className="overflow-hidden">
+                <p className="text-xs font-black text-base-content truncate">
+                  {session?.user?.name || "Guest User"}
+                </p>
+                <p className="text-[10px] text-primary font-bold truncate">
+                  {session?.user?.email || "No email provided"}
+                </p>
+              </div>
+           </div>
         </div>
       </aside>
 
