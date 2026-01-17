@@ -5,7 +5,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "**", 
+        hostname: "**",
       },
       {
         protocol: "http",
@@ -13,8 +13,17 @@ const nextConfig = {
       },
     ],
     dangerouslyAllowSVG: true,
-    contentDispositionType: 'attachment',
+    contentDispositionType: "attachment",
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+  },
+  async redirects() {
+    return [
+      {
+        source: "/dashboard",
+        destination: "/dashboard/profile",
+        permanent: true,
+      },
+    ];
   },
 };
 
