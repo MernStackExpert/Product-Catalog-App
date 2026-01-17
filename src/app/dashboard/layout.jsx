@@ -10,15 +10,15 @@ export default function DashboardLayout({ children }) {
 
   return (
     <div className="flex min-h-screen bg-base-200">
-      {/* Sidebar Section */}
-      <aside className="w-64 bg-base-100 shadow-xl hidden lg:flex flex-col border-r border-base-300">
+     
+      <aside className="w-64 bg-base-100 shadow-xl hidden lg:flex flex-col border-r border-base-300 h-screen sticky top-0">
         <div className="p-8 border-b border-base-300">
           <Link href="/" className="text-2xl font-black italic">
             Fresh<span className="text-primary">Up</span> Dashboard
           </Link>
         </div>
         
-        <nav className="flex-1 p-6 space-y-2">
+        <nav className="flex-1 p-6 space-y-2 overflow-y-auto">
           {dashboardItems.map((item) => (
             <Link
               key={item.path}
@@ -33,8 +33,8 @@ export default function DashboardLayout({ children }) {
           ))}
         </nav>
 
-        {/* Dynamic User Profile Section */}
-        <div className="p-6 border-t border-base-300 bg-base-200/50">
+        {/* User Profile Section - সবসময় নিচে থাকবে */}
+        <div className="p-6 border-t border-base-300 bg-base-200/50 mt-auto">
            <div className="flex items-center gap-3">
               {session?.user?.image ? (
                 <div className="relative w-10 h-10 rounded-full overflow-hidden border-2 border-primary">
@@ -63,7 +63,7 @@ export default function DashboardLayout({ children }) {
       </aside>
 
       {/* Main Content Area */}
-      <main className="flex-1 p-6 lg:p-12 overflow-y-auto">
+      <main className="flex-1 p-6 lg:p-12">
         <div className="max-w-6xl mx-auto">
            {children}
         </div>

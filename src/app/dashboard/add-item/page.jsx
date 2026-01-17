@@ -162,7 +162,7 @@ export default function AddItemPage() {
           </div>
           <div className="form-control">
             <label className="block text-sm font-black text-gray-600 uppercase mb-3">Rating</label>
-            <input {...register("rating", { required: true })} type="number" step="0.1" className="input input-bordered rounded-2xl h-14 focus:outline-primary bg-base-200/50" />
+            <input {...register("rating", { required: true })} type="number" step="0.1" className="input input-bordered rounded-2xl h-14 focus:outline-primary bg-base-200/50" placeholder="Max 5 ⭐" />
           </div>
         </div>
 
