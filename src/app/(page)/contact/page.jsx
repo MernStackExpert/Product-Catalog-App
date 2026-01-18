@@ -85,11 +85,11 @@ export default function ContactPage() {
               <form className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="form-control">
                   <label className="label font-bold text-sm">Full Name</label>
-                  <input type="text" placeholder="MD NIROB SARKAR" className="input input-lg bg-base-200 border-none rounded-2xl" />
+                  <input type="text" placeholder="Enter Your Name" className="input input-lg bg-base-200 border-none rounded-2xl" />
                 </div>
                 <div className="form-control">
                   <label className="label font-bold text-sm">Email Address</label>
-                  <input type="email" placeholder="mdnirob30k@gmail.com" className="input input-lg bg-base-200 border-none rounded-2xl" />
+                  <input type="email" placeholder="abcd@gmail.com" className="input input-lg bg-base-200 border-none rounded-2xl" />
                 </div>
                 <div className="form-control col-span-1 md:col-span-2">
                   <label className="label font-bold text-sm">Subject</label>
